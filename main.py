@@ -16,6 +16,12 @@ from PIL import ImageEnhance
 from requests import session, post, adapters
 adapters.DEFAULT_RETRIES = 5
 
+def set_q(iter0):
+    res = list()
+    for i in iter0:
+        if i not in res:
+            res.append(i)
+    return res 
 class Fudan:
     """
     建立与复旦服务器的会话，执行登录/登出操作
@@ -216,7 +222,7 @@ class Zlapp(Fudan):
                     "tw": "13",
                     "province": province,
                     "city": city,
-                    "area": " ".join((province, city, district)),
+                    "area": " ".join(set_q((province, city, district))),
                     #"sfzx": "1",  # 是否在校
                     #"fxyy": "",  # 返校原因
                     "code": code,
