@@ -16,12 +16,12 @@ from PIL import ImageEnhance
 from requests import session, post, adapters
 adapters.DEFAULT_RETRIES = 5
 
-def set_q(iter0):
+def set_q(iterO):
     res = list()
-    for i in iter0:
-        if i not in res:
-            res.append(i)
-    return res 
+    for item in iterO:
+        if item not in res:
+            res.append(item) 
+    return res
 class Fudan:
     """
     建立与复旦服务器的会话，执行登录/登出操作
